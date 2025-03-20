@@ -22,94 +22,41 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-RecyclerView recyclerView;
-   ArrayList <ContactModel> contacts = new ArrayList<>();
-   FloatingActionButton dialog_button;
-   ContactAdapter adapter;
+    RecyclerView recyclerView;
+    ArrayList<contact_model> list = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-         dialog_button = findViewById(R.id.dialog_button);
-         recyclerView = findViewById(R.id.recyclerView);
-         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView = findViewById(R.id.recyclerview);
 
-         dialog_button.setOnClickListener(new View.OnClickListener() {
-             @Override
-             public void onClick(View view) {
-                 Dialog dialog= new Dialog(MainActivity.this);
-                 dialog.setContentView(R.layout.dialogue_box);
-                 EditText edname = dialog.findViewById(R.id.edname);
-                 EditText ednumber = dialog.findViewById(R.id.ednumber);
-                 Button updatebtn = dialog.findViewById(R.id.updatebtn);
-
-                 updatebtn.setOnClickListener(new View.OnClickListener() {
-                     @Override
-                     public void onClick(View view) {
-                         Context context = MainActivity.this;
-                         String name , number ;
-                         if(!edname.getText().toString().isEmpty() && !ednumber.getText().toString().isEmpty()) {
-                              name = edname.getText().toString();
-                             number = ednumber.getText().toString();
-                             contacts.add(new ContactModel(R.drawable.circle,name,number));
-                             adapter.notifyItemInserted(contacts.size()-1);
-                             recyclerView.scrollToPosition(contacts.size()-1);
-
-                         }
-                         else{
-                             Toast.makeText(context,"enter name and number ", Toast.LENGTH_SHORT).show();
-                         }
-
-                         dialog.dismiss();
-
-                     }
-                 });dialog.show();
-
-
-
-             }
-
-         });
-
-
-
-        contacts.add(new ContactModel(R.drawable.circle,"Aman kumar singh", "7033759086"));
-        contacts.add(new ContactModel(R.drawable.circle,"Ayush Singh", "8603325498"));
-        contacts.add(new ContactModel(R.drawable.circle,"Sushil", "8974562156"));
-        contacts.add(new ContactModel(R.drawable.circle," Power Star", "1365897456"));
-        contacts.add(new ContactModel(R.drawable.circle,"Aman kumar singh", "7033759086"));
-        contacts.add(new ContactModel(R.drawable.circle,"Aman kumar singh", "7033759086"));
-        contacts.add(new ContactModel(R.drawable.circle,"Ayush Singh", "8603325498"));
-        contacts.add(new ContactModel(R.drawable.circle,"Sushil", "8974562156"));
-        contacts.add(new ContactModel(R.drawable.circle," Power Star", "1365897456"));
-        contacts.add(new ContactModel(R.drawable.circle,"Aman kumar singh", "7033759086"));
-        contacts.add(new ContactModel(R.drawable.circle,"Aman kumar singh", "7033759086"));
-        contacts.add(new ContactModel(R.drawable.circle,"Ayush Singh", "8603325498"));
-        contacts.add(new ContactModel(R.drawable.circle,"Sushil", "8974562156"));
-        contacts.add(new ContactModel(R.drawable.circle," Power Star", "1365897456"));
-        contacts.add(new ContactModel(R.drawable.circle,"Aman kumar singh", "7033759086"));
-        contacts.add(new ContactModel(R.drawable.circle,"Aman kumar singh", "7033759086"));
-        contacts.add(new ContactModel(R.drawable.circle,"Ayush Singh", "8603325498"));
-        contacts.add(new ContactModel(R.drawable.circle,"Sushil", "8974562156"));
-        contacts.add(new ContactModel(R.drawable.circle," Power Star", "1365897456"));
-        contacts.add(new ContactModel(R.drawable.circle,"Aman kumar singh", "7033759086"));
-        contacts.add(new ContactModel(R.drawable.circle,"Aman kumar singh", "7033759086"));
-        contacts.add(new ContactModel(R.drawable.circle,"Ayush Singh", "8603325498"));
-        contacts.add(new ContactModel(R.drawable.circle,"Sushil", "8974562156"));
-        contacts.add(new ContactModel(R.drawable.circle," Power Star", "1365897456"));
-        contacts.add(new ContactModel(R.drawable.circle,"Aman kumar singh", "7033759086"));
-        contacts.add(new ContactModel(R.drawable.circle,"Aman kumar singh", "7033759086"));
-        contacts.add(new ContactModel(R.drawable.circle,"Ayush Singh", "8603325498"));
-        contacts.add(new ContactModel(R.drawable.circle,"Sushil", "8974562156"));
-        contacts.add(new ContactModel(R.drawable.circle," Power Star", "1365897456"));
-        contacts.add(new ContactModel(R.drawable.circle,"Aman kumar singh", "7033759086"));
-
-           adapter = new ContactAdapter(contacts,this);
-           recyclerView.setAdapter(adapter);
-
-
+        list.add(new contact_model("Aman kumar singh", "7033759086", R.drawable.circle));
+        list.add(new contact_model("papa", "7033759086", R.drawable.circle));
+        list.add(new contact_model("mami", "7033759086", R.drawable.circle));
+        list.add(new contact_model("aman", "7033759086", R.drawable.circle));
+        list.add(new contact_model("Rishav", "6959846464", R.drawable.circle));
+        list.add(new contact_model("Strawberry", "548796123", R.drawable.circle));
+        list.add(new contact_model("Bhad me jaao", "235489703", R.drawable.circle));
+        list.add(new contact_model("Aman kumar singh", "7033759086", R.drawable.circle));
+        list.add(new contact_model("papa", "7033759086", R.drawable.circle));
+        list.add(new contact_model("mami", "7033759086", R.drawable.circle));
+        list.add(new contact_model("aman", "7033759086", R.drawable.circle));
+        list.add(new contact_model("Rishav", "6959846464", R.drawable.circle));
+        list.add(new contact_model("Strawberry", "548796123", R.drawable.circle));
+        list.add(new contact_model("Bhad me jaao", "235489703", R.drawable.circle));
+        list.add(new contact_model("Aman kumar singh", "7033759086", R.drawable.circle));
+        list.add(new contact_model("papa", "7033759086", R.drawable.circle));
+        list.add(new contact_model("mami", "7033759086", R.drawable.circle));
+        list.add(new contact_model("aman", "7033759086", R.drawable.circle));
+        list.add(new contact_model("Rishav", "6959846464", R.drawable.circle));
+        list.add(new contact_model("Strawberry", "548796123", R.drawable.circle));
+        list.add(new contact_model("Bhad me jaao", "235489703", R.drawable.circle));
+        contact_adapter adapter = new contact_adapter(list, this);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
